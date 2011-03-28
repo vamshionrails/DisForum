@@ -1,0 +1,5 @@
+<% content_for :nav_left do -%>
+	<%= link_to "iForum", forums_path %> » <%= link_to @forum.name, forum_path(@forum) %> » new post
+<% end -%>
+
+<%= render :partial => 'form' %>

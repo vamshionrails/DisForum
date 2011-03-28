@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>iForum</title>
+	<%= stylesheet_link_tag "reset", "style", "coderay" %>
+	<%= javascript_include_tag :defaults %>
+	<%= csrf_meta_tag %>
+</head>
+<body>
+	<div id="page">
+		<div id="header">
+			<div class="main">
+				<div class="main_wrap">
+					<h2><%= yield :nav_left %></h2>
+				</div>
+			</div>
+			<div class="sub">
+				<%= yield :nav_right %>
+			</div>
+		</div>
+		<div id="content">
+			<div class="notice">
+				<% if flash[:notice] %>
+					<%= flash[:notice] %>
+				<% end %>
+			</div>
+			<%= yield %>
+		</div>
+		<div id="footer">
+			<div class="main">
+				<div class="short_main_wrap">
+					© 2008 - 2010
+				</div>
+			</div>
+			
+			<div class="long_sub">
+				<% if session[:user_id] %>
+					logged in as: <%= session[:name] %> • <%= link_to "logout", logout_path %>
+				<% else %>
+					<%= link_to "signup", signup_path %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

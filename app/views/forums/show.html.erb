@@ -1,0 +1,22 @@
+<% content_for :nav_left do -%>
+	<%= link_to "Discussion Forum", forums_path %> »  <%= @forum.name %>
+<% end -%>
+<% content_for :nav_right do -%>
+	<%= link_to "new post", new_forum_post_path(@forum) %>
+<% end -%>
+
+<% @posts.each do |post| %>
+<div class="post">
+	<div class="main">
+		<div class="main_wrap">
+			» <%= link_to post.title, post_path(post) %>
+		</div>
+	</div>
+	<div class="sub">
+		200
+	</div>
+</div>
+<% end %>
+<div class="paginate">
+	<%= will_paginate @posts, :previous_label => "«", :next_label => "»" %>	
+</div>

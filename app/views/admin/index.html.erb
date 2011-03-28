@@ -1,0 +1,22 @@
+<% content_for :nav_left do -%>
+	<%= link_to "iForum admin", :controller => "admin", :action => "index" %> » admin
+<% end -%>
+<% content_for :nav_right do -%>
+	<%= link_to "iForum", forums_path %>
+<% end -%>
+
+<% @posts.each do |post| %>
+	<div class="post">
+		<div class="main">
+			<div class="main_wrap">
+				» <%= post.title %>
+			</div>
+		</div>
+		<div class="sub">
+			<%= link_to "delete", post_path(post), :confirm => "are you sure?", :method => :delete %>
+		</div>
+	</div>
+<% end %>
+<div class="paginate">
+	<%= will_paginate @posts, :previous_label => "«", :next_label => "»" %>	
+</div>

@@ -1,0 +1,23 @@
+<% content_for :nav_left do -%>
+	Discussion Forum
+<% end -%>
+<% content_for :nav_right do -%>
+	<% unless session[:user_id] %>
+		<%= link_to "login", login_path %>
+	<% end %>
+<% end -%>
+
+<% @forums.each do |forum| %>
+<div class="forum">
+	<div class="main">
+		<div class="short_main_wrap">
+			『<%= link_to forum.name, forum %>』
+		</div>
+	</div>
+	<div class="long_sub align_left">
+		<%= forum.description %>
+	</div>
+</div>
+<% end %>
+<br>
+<%= will_paginate(@forums, :previous_label => "«", :next_label => "»") %>

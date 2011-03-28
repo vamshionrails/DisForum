@@ -1,0 +1,109 @@
+body{
+	font:1em 'Lucida Grande',sans-serif;
+}
+a {
+	color: #9D582E;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+p{
+	padding-bottom: 20px;
+}
+fieldset {
+	border: solid 1px #DEDEDE;
+	padding: 20px;
+	margin-top: 10px;
+}
+
+fieldset legend {
+	font-weight: bold;
+}
+#page{
+	width: 900px;
+	margin: 0 auto;
+}
+#header{
+	padding: 10px 0 30px 0;	
+}
+#content{
+	border-top: 1px #999999 solid;
+	padding: 10px 3px 50px 0;
+}
+.notice{
+	color: red;
+	padding-left:10px;
+}
+#footer{
+	padding-top: 10px;
+	border-top: 1px #999999 solid;
+}
+#header h2{
+	padding-bottom:10px;
+}
+.main{
+	float: left;
+	width: 100%;
+	min-height: 1px;
+}
+.main_wrap{
+	margin-right:100px;
+}
+.sub{
+	float:left;
+	width: 100px;
+	margin-left: -100px;
+	text-align:right;
+}
+
+.forum{
+	padding: 10px 0 20px 0;
+	border: 1px;
+}
+
+.form label{
+	display:block;
+	padding:8px 0;
+}
+
+.form .actions{
+	padding:15px 0;
+}
+
+.post{
+	padding: 5px 0 20px 3px;
+}
+.long_sub{
+	float:left;
+	margin-left: -250px;
+	width: 250px;
+	text-align:right;
+}
+.short_main_wrap{
+	margin-right: 260px;
+}
+.paginate{
+	float:right;
+	margin: 10px 20px 0 0;
+}
+.extra{
+	float:left;
+	width: 20px;
+	margin-left:-470px;
+}
+.comment_content{
+	float:left;
+	margin-left:-450px;
+	width:450px;
+	text-align:left;
+}
+.comment_wrap{
+	margin-right:450px;
+}
+.align_left{
+	text-align:left;
+}
+.align_right{
+	text-align:right;
+}

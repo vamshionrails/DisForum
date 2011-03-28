@@ -1,0 +1,55 @@
+<% content_for :nav_left do -%>
+	» <%= @post.title %>
+<% end -%>
+<% content_for :nav_right do -%>
+	<% if @post.user_id == session[:user_id] %>
+		<%= link_to "edit", edit_post_path(@post) %>
+	<% end %>
+	<%= link_to "back", forum_path(@forum) %>
+<% end -%>
+
+<div class="post">
+	<%= raw (coderay(@post.content)) %>
+</div>
+
+<% unless @post.comments.blank? %>
+<div class="comment">
+	<fieldset>
+	
+	<legend>Comments</legend>
+	
+	<% @post.comments.each do |comment| %>
+		<div class="main">
+			<div class="comment_wrap">
+				<%= link_to "#", comment_path(comment) %>&nbsp;<%= comment.user.name %>
+			</div>
+		</div>
+		<div class="comment_content">
+			<%= comment.content %>
+		</div>
+		<div class="extra">
+			»
+		</div>
+	<% end %>
+	</fieldset>
+</div>
+<% end %>
+<div class="form">
+	<% if session[:user_id] %>
+	<fieldset>
+		<legend>Add comment</legend>
+		
+		<%= form_for [@post, @post.comments.build] do |f| -%>
+			<%= f.error_messages %>
+		
+			<div class="field">
+				<%= f.text_area :content, :cols => 58, :rows => 5 %>
+			</div>
+		
+			<div class="actions">
+				<%= f.submit %>
+			</div>
+		<% end -%>
+	</fieldset>
+	<% end %>
+</div>

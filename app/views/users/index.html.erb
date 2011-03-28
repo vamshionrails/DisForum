@@ -1,0 +1,30 @@
+<% content_for :nav_left do -%>
+	<%= link_to "iForum", forums_path %> » <%= link_to "User list", users_path %>
+<% end -%>
+<% content_for :nav_right do -%>
+	<%= link_to 'New user', new_user_path %>
+<% end -%>
+
+<div class="post">
+	<div class="main">
+		<div class="main_wrap">
+			name
+		</div>
+	</div>
+	<div class="sub">
+		handle
+	</div>
+</div>
+<% @users.each do |user| %>
+  <div class="post">
+	<div class="main">
+    	<div class="main_wrap">
+			<%= user.name %>
+		</div>
+	</div>
+	<div class="sub">
+    	<%= link_to 'Edit', edit_user_path(user) %>
+    	<%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %>
+	</div>
+  </div>
+<% end %>
